@@ -134,7 +134,7 @@
       </div>
     </footer>
     <audio id="backgroundMusic" loop>
-      <source src="music/music1.mp3" type="audio/mpeg">
+      <source src="music/music1.mp3" type="audio/mp3">
       <source src="music/music1.ogg" type="audio/ogg">
       Your browser does not support the audio element.
     </audio>
@@ -153,26 +153,22 @@
   // Set volume rendah agar tidak mengganggu
   music.volume = 0.5;
 
-  // Fungsi untuk toggle musik
   musicToggle.addEventListener('click', function() {
     if (isPlaying) {
       music.pause();
-      // Mengubah ikon menjadi 'play' (musik mati)
+     
       musicToggle.innerHTML = '<i class="fas fa-music"></i>'; 
     } else {
       music.play().catch(function(error) {
         console.log("Playback prevented:", error);
         alert("Browser Anda mungkin memblokir autoplay. Silakan coba lagi atau berinteraksi dengan halaman.");
       });
-      // Mengubah ikon menjadi 'pause' (musik menyala)
+    
       musicToggle.innerHTML = '<i class="fas fa-pause"></i>'; 
     }
     isPlaying = !isPlaying;
   });
 
-  // Opsional: Jika Anda ingin musik dimulai setelah *interaksi pertama* di halaman
-  // dan bukan hanya saat tombol musik diklik.
-  // Ide di sini adalah untuk "unlock" autoplay dengan interaksi apapun.
   document.body.addEventListener('click', function unlockAudio() {
     // Mencoba memutar dan langsung menjeda untuk "mengaktifkan" audio context
     music.play().then(() => {
@@ -182,7 +178,7 @@
     }).catch(function(error) {
       console.log("Autoplay unlock failed:", error);
     });
-  }, { once: true }); // Menggunakan { once: true } agar listener hanya berjalan sekali
+  }, { once: true });
 });
       });
     </script>
