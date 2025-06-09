@@ -134,7 +134,7 @@
       </div>
     </footer>
     <audio id="backgroundMusic" loop>
-      <source src="music/music1.mp3" type="audio/mp3">
+      <source src="music/music1.mp3" type="audio/mpeg">
       <source src="music/music1.ogg" type="audio/ogg">
       Your browser does not support the audio element.
     </audio>
@@ -150,9 +150,9 @@
   var musicToggle = document.getElementById('musicToggle');
   var isPlaying = false;
 
-  // Set volume rendah agar tidak mengganggu
   music.volume = 0.5;
-
+  music.loop = true; 
+});
   musicToggle.addEventListener('click', function() {
     if (isPlaying) {
       music.pause();
