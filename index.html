@@ -14,6 +14,23 @@
     <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+    <style>
+      .music-control {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body id="top">
     <div class="page">
@@ -36,75 +53,74 @@
       </header>
       <div class="page-content">
         <div class="container">
-<div class="container pp-section">
-  <div class="row">
-    <div class="col-md-9 col-sm-12 px-0">
-      <h1 class="h3"> <i>Sekedar mengabadikan foto tergantung mood.</i></h1>
-    </div>
-  </div>
-</div>
-<div class="container px-0 py-4">
-  <div class="pp-category-filter">
-    <div class="row">
-      <div class="col-sm-12">
-  <a class="btn btn-primary pp-filter-button" href="#" data-filter="all">All</a>
-  <a class="btn btn-outline-primary pp-filter-button" href="#" data-filter="nature">Nature</a>
-  <a class="btn btn-outline-primary pp-filter-button" href="#" data-filter="food">Food</a>
-</div>
-    </div>
-  </div>
-</div>
-<div class="container px-0">
-  <div class="pp-gallery">
-    <div class="card-columns">
-      <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/Monas1.png" alt="Nature"/>
-            <figcaption>
-              <div class="h4">Jakarta</div>
-              <p>Icon</p>
-            </figcaption>
-          </figure></a></div>
-      <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/2Nature_ancol.jpg" alt="Nature"/>
-            <figcaption>
-              <div class="h4">Beach</div>
-              <p>Nature</p>
-            </figcaption>
-          </figure></a></div>
-      <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/3Nature_gunung.jpg" alt="Nature"/>
-            <figcaption>
-              <div class="h4">Mountain</div>
-              <p>Nature</p>
-            </figcaption>
-          </figure></a></div>
-      <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/4Nature_danau.jpg" alt="Nature"/>
-            <figcaption>
-              <div class="h4">Sunset</div>
-              <p>Nature</p>
-            </figcaption>
-          </figure></a></div>
-
-            <div class="card" data-groups="[&quot;food&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/1Food.jpg" alt="Food"/>
-            <figcaption>
-              <div class="h4">Coffee</div>
-              <p>Food</p>
-            </figcaption>
-          </figure></a></div>
-      <div class="card" data-groups="[&quot;food&quot;]"><a href="image-detail.html">
-          <figure class="pp-effect"><img class="img-fluid" src="images/2Food.jpg" alt="Food"/>
-            <figcaption>
-              <div class="h4">Coconut</div>
-              <p>Food</p>
-            </figcaption>
-          </figure></a></div>
-      
-    </div>
-  </div>
-</div>
-<div class="pp-section"></div></div>
+          <div class="container pp-section">
+            <div class="row">
+              <div class="col-md-9 col-sm-12 px-0">
+                <h1 class="h3"> <i>Sekedar mengabadikan foto tergantung mood.</i></h1>
+              </div>
+            </div>
+          </div>
+          <div class="container px-0 py-4">
+            <div class="pp-category-filter">
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-primary pp-filter-button" href="#" data-filter="all">All</a>
+                  <a class="btn btn-outline-primary pp-filter-button" href="#" data-filter="nature">Nature</a>
+                  <a class="btn btn-outline-primary pp-filter-button" href="#" data-filter="food">Food</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container px-0">
+            <div class="pp-gallery">
+              <div class="card-columns">
+                <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/Monas1.png" alt="Nature"/>
+                      <figcaption>
+                        <div class="h4">Jakarta</div>
+                        <p>Icon</p>
+                      </figcaption>
+                    </figure></a></div>
+                <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/2Nature_ancol.jpg" alt="Nature"/>
+                      <figcaption>
+                        <div class="h4">Beach</div>
+                        <p>Nature</p>
+                      </figcaption>
+                    </figure></a></div>
+                <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/3Nature_gunung.jpg" alt="Nature"/>
+                      <figcaption>
+                        <div class="h4">Mountain</div>
+                        <p>Nature</p>
+                      </figcaption>
+                    </figure></a></div>
+                <div class="card" data-groups="[&quot;nature&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/4Nature_danau.jpg" alt="Nature"/>
+                      <figcaption>
+                        <div class="h4">Sunset</div>
+                        <p>Nature</p>
+                      </figcaption>
+                    </figure></a></div>
+                <div class="card" data-groups="[&quot;food&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/1Food.jpg" alt="Food"/>
+                      <figcaption>
+                        <div class="h4">Coffee</div>
+                        <p>Food</p>
+                      </figcaption>
+                    </figure></a></div>
+                <div class="card" data-groups="[&quot;food&quot;]"><a href="image-detail.html">
+                    <figure class="pp-effect"><img class="img-fluid" src="images/2Food.jpg" alt="Food"/>
+                      <figcaption>
+                        <div class="h4">Coconut</div>
+                        <p>Food</p>
+                      </figcaption>
+                    </figure></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="pp-section"></div>
+        </div>
       </div>
     </div>
     <footer class="pp-footer">
@@ -117,25 +133,50 @@
         </div>
       </div>
     </footer>
-    <audio id="backgroundMusic" loop autoplay controls style="display: none;">
+    <audio id="backgroundMusic" loop>
       <source src="music/music1.mp3" type="audio/mpeg">
       <source src="music/music1.ogg" type="audio/ogg">
       Your browser does not support the audio element.
     </audio>
+    <div class="music-control" id="musicToggle">
+      <i class="fas fa-music"></i>
+    </div>
     <script src="scripts/jquery.min.js?ver=1.2.0"></script>
     <script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
     <script>
-      // Autoplay can be tricky due to browser policies.
-      // This attempts to play the music automatically but provides controls if blocked.
       document.addEventListener('DOMContentLoaded', function() {
         var music = document.getElementById('backgroundMusic');
-        music.volume = 0.3; // Adjust volume as needed (0.0 to 1.0)
-        music.play().catch(function(error) {
-          // Autoplay was prevented. Show controls or a play button to the user.
-          console.log("Autoplay prevented:", error);
-          // You might want to make the controls visible here, e.g.:
-          // music.style.display = 'block';
+        var musicToggle = document.getElementById('musicToggle');
+        var isPlaying = false;
+
+        // Set volume rendah agar tidak mengganggu
+        music.volume = 0.3;
+
+        // Fungsi untuk toggle musik
+        musicToggle.addEventListener('click', function() {
+          if (isPlaying) {
+            music.pause();
+            musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+          } else {
+            music.play().catch(function(error) {
+              console.log("Playback prevented:", error);
+              alert("Silakan ketuk layar untuk memutar musik.");
+            });
+            musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+          }
+          isPlaying = !isPlaying;
+        });
+
+        // Optional: Mulai musik setelah interaksi pertama
+        document.body.addEventListener('click', function initAudio() {
+          music.play().then(() => {
+            music.pause(); // Pause segera setelah dimulai
+            isPlaying = false;
+          }).catch(function(error) {
+            console.log("Autoplay prevented:", error);
+          });
+          document.body.removeEventListener('click', initAudio);
         });
       });
     </script>
