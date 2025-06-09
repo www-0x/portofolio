@@ -139,47 +139,38 @@
       Your browser does not support the audio element.
     </audio>
     <div class="music-control" id="musicToggle">
-      <i class="fas fa-music"></i>
-    </div>
+      <i class="fas fa-music"></i> </div>
     <script src="scripts/jquery.min.js?ver=1.2.0"></script>
     <script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
     <script>
- document.addEventListener('DOMContentLoaded', function() {
-  var music = document.getElementById('backgroundMusic');
-  var musicToggle = document.getElementById('musicToggle');
-  var isPlaying = false;
+      document.addEventListener('DOMContentLoaded', function() {
+        var music = document.getElementById('backgroundMusic');
+        var musicToggle = document.getElementById('musicToggle');
+        var isPlaying = false;
 
-  music.volume = 0.5;
-  music.loop = true; 
-});
-  musicToggle.addEventListener('click', function() {
-    if (isPlaying) {
-      music.pause();
-     
-      musicToggle.innerHTML = '<i class="fas fa-music"></i>'; 
-    } else {
-      music.play().catch(function(error) {
-        console.log("Playback prevented:", error);
-        alert("Browser Anda mungkin memblokir autoplay. Silakan coba lagi atau berinteraksi dengan halaman.");
-      });
-    
-      musicToggle.innerHTML = '<i class="fas fa-pause"></i>'; 
-    }
-    isPlaying = !isPlaying;
-  });
+        music.volume = 0.5;
 
-  document.body.addEventListener('click', function unlockAudio() {
-    // Mencoba memutar dan langsung menjeda untuk "mengaktifkan" audio context
-    music.play().then(() => {
-      music.pause();
-      // Hapus event listener setelah interaksi pertama
-      document.body.removeEventListener('click', unlockAudio);
-    }).catch(function(error) {
-      console.log("Autoplay unlock failed:", error);
-    });
-  }, { once: true });
-});
+        musicToggle.addEventListener('click', function() {
+          if (isPlaying) {
+            music.pause();
+            musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+          } else {
+            
+            music.play().then(() => {
+              musicToggle.innerHTML = '<i class="fas fa-pause"></i>'; 
+            }).catch(function(error) {
+              console.log("Playback prevented:", error);
+              
+              alert("Browser Anda memblokir pemutaran otomatis. Silakan klik tombol ini lagi.");
+              
+              isPlaying = false;
+              musicToggle.innerHTML = '<i class="fas fa-music"></i>'; 
+              return; 
+            });
+          }
+          isPlaying = !isPlaying; 
+        });
       });
     </script>
   </body>
