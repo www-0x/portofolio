@@ -151,19 +151,19 @@
         var isPlaying = false;
 
         // Set volume rendah agar tidak mengganggu
-        music.volume = 0.3;
+        music.volume = 0.5;
 
         // Fungsi untuk toggle musik
         musicToggle.addEventListener('click', function() {
           if (isPlaying) {
             music.pause();
-            musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+            musicToggle.innerHTML = '<i class="fas fa-music"><source src="music/music1.mp3" type="audio/mpeg"></i>';
           } else {
             music.play().catch(function(error) {
               console.log("Playback prevented:", error);
               alert("Silakan ketuk layar untuk memutar musik.");
             });
-            musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+            musicToggle.innerHTML = '<i class="fas fa-pause"><source src="music/music1.mp3" type="audio/mpeg"></i>';
           }
           isPlaying = !isPlaying;
         });
