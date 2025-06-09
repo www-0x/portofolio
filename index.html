@@ -145,39 +145,45 @@
     <script src="scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="scripts/main.js?ver=1.2.0"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var music = document.getElementById('backgroundMusic');
-        var musicToggle = document.getElementById('musicToggle');
-        var isPlaying = false;
+ document.addEventListener('DOMContentLoaded', function() {
+  var music = document.getElementById('backgroundMusic');
+  var musicToggle = document.getElementById('musicToggle');
+  var isPlaying = false;
 
-        // Set volume rendah agar tidak mengganggu
-        music.volume = 0.5;
+  // Set volume rendah agar tidak mengganggu
+  music.volume = 0.5;
 
-        // Fungsi untuk toggle musik
-        musicToggle.addEventListener('click', function() {
-          if (isPlaying) {
-            music.pause();
-            musicToggle.innerHTML = '<i class="fas fa-music"><source src="music/music1.mp3" type="audio/mpeg"></i>';
-          } else {
-            music.play().catch(function(error) {
-              console.log("Playback prevented:", error);
-              alert("Silakan ketuk layar untuk memutar musik.");
-            });
-            musicToggle.innerHTML = '<i class="fas fa-pause"><source src="music/music1.mp3" type="audio/mpeg"></i>';
-          }
-          isPlaying = !isPlaying;
-        });
+  // Fungsi untuk toggle musik
+  musicToggle.addEventListener('click', function() {
+    if (isPlaying) {
+      music.pause();
+      // Mengubah ikon menjadi 'play' (musik mati)
+      musicToggle.innerHTML = '<i class="fas fa-music"></i>'; 
+    } else {
+      music.play().catch(function(error) {
+        console.log("Playback prevented:", error);
+        alert("Browser Anda mungkin memblokir autoplay. Silakan coba lagi atau berinteraksi dengan halaman.");
+      });
+      // Mengubah ikon menjadi 'pause' (musik menyala)
+      musicToggle.innerHTML = '<i class="fas fa-pause"></i>'; 
+    }
+    isPlaying = !isPlaying;
+  });
 
-        // Optional: Mulai musik setelah interaksi pertama
-        document.body.addEventListener('click', function initAudio() {
-          music.play().then(() => {
-            music.pause(); // Pause segera setelah dimulai
-            isPlaying = false;
-          }).catch(function(error) {
-            console.log("Autoplay prevented:", error);
-          });
-          document.body.removeEventListener('click', initAudio);
-        });
+  // Opsional: Jika Anda ingin musik dimulai setelah *interaksi pertama* di halaman
+  // dan bukan hanya saat tombol musik diklik.
+  // Ide di sini adalah untuk "unlock" autoplay dengan interaksi apapun.
+  document.body.addEventListener('click', function unlockAudio() {
+    // Mencoba memutar dan langsung menjeda untuk "mengaktifkan" audio context
+    music.play().then(() => {
+      music.pause();
+      // Hapus event listener setelah interaksi pertama
+      document.body.removeEventListener('click', unlockAudio);
+    }).catch(function(error) {
+      console.log("Autoplay unlock failed:", error);
+    });
+  }, { once: true }); // Menggunakan { once: true } agar listener hanya berjalan sekali
+});
       });
     </script>
   </body>
